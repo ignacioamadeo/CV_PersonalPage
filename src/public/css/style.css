@@ -27,11 +27,16 @@
   padding: 20px 20px;  
 }
 
+.homeSubtitle{
+  display: block;
+  width: 100%;
+}
+
 .homeSubtitle ul li{
   display: flex;
   padding: 10 10;
   font-size: 10vw;
-  display: block;
+  display: inline-block;
   padding: auto auto;
 }
 
@@ -68,6 +73,27 @@ a {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
   }
+
+.homeTitle{
+  font-size: 10vw;
+}
+
+.homeSubtitle ul{
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+
+.homeSubtitle ul li{
+  display: flex;
+  flex-direction: row;
+  padding: 10 10;
+  font-size: 4vw;
+  display: inline-block;
+  padding: 0 20px;
+  margin: auto;
+
+}
 
   *{
     background-color: rgba(255, 0, 0, 0);
