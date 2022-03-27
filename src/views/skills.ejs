@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+<div>
+                   <!-- TARJETAS DE PRODUCTOS: -->
+                   <section class="productIndArticulos allproductConteinerCard">
+
+                    <!-- Condicional con filtro de datos por categoría de productos: -->
+                    <% productInfo.filter(function(item){ %>
+                        <% if (item.prodCategoria=="#Ind" ) { %>
+
+                            <!-- Cada tarjeta de productos a iterar: -->
+                            <article class="tarjetaProducto">
+
+                                <!-- Imagen con hipervínculo del producto para clickear sobre la imacen: -->
+                                <div class="imagenTarjeta">
+                                    <!-- Hipervínculo -->
+                                    <a href="../productDetail/<%= item.prodID %>">
+                                        <!-- Imagen -->
+                                        <div class="imagenProducto"><img src=<%=item.prodImg %>></div>
+                                    </a>
+                                </div>
+
+                                <ul>
+                                    <!-- Hipervínculo -->
+                                    <a href="./productDetail/<%= item.prodID %>">
+                                        <!-- Nombre del producto -->
+                                        <li class="nombreProducto">
+                                            <%= item.prodNombre %>
+                                        </li>
+                                        <!-- Precio: -->
+                                        <li class="precioProducto">$ <%= item.prodPrecio %>
+                                    </a>
+                                </ul>
+
+                                <!-- Lado "B" Tarjeta (editar producto): -->
+                                    <div class="overlayTarjetaProducto">
+
+                                        <a href="/modifyProduct/<%= item.prodID  %>" class="modifyEditar">
+                                        
+                                        ✏️ Editar producto
+                                        </a>
+                                        <form action="/modifyProduct/delete/<%= item.prodID  %>?_method=DELETE" method="POST" >
+    
+                                            <button type="submit" class="modifyEliminar">⚠️ ELIMINAR</button>
+                                        </form>
+                                    </div>
+
+                            </article>
+                            <% } %>
+                                <% }); %>
+                </section>
+                <!-- FIN HOME CONTENEDOR 4 -->
+
+
+</div>
+</body>
+</html>
